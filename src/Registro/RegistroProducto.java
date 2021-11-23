@@ -43,6 +43,9 @@ public class RegistroProducto extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 204));
+        setPreferredSize(new java.awt.Dimension(1240, 410));
+
         jLabel1.setText("Codigo");
 
         jLabel2.setText("Nombre");
@@ -66,6 +69,7 @@ public class RegistroProducto extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        botones.setBackground(new java.awt.Color(255, 255, 204));
         botones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Nuevo");
@@ -115,7 +119,7 @@ public class RegistroProducto extends javax.swing.JPanel {
                 .addComponent(botones, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

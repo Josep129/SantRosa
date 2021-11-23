@@ -47,6 +47,8 @@ public class Principal extends javax.swing.JFrame {
         btnConsulta = new javax.swing.JLabel();
         btnRegistroVenta = new javax.swing.JLabel();
         datos_usuario = new javax.swing.JPanel();
+        jLabelNombreUsuario = new javax.swing.JLabel();
+        jLabelFecha = new javax.swing.JLabel();
         contenido = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
         LabelExit = new javax.swing.JLabel();
@@ -150,11 +152,21 @@ public class Principal extends javax.swing.JFrame {
         datos_usuario.setLayout(datos_usuarioLayout);
         datos_usuarioLayout.setHorizontalGroup(
             datos_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(datos_usuarioLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabelNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(jLabelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         datos_usuarioLayout.setVerticalGroup(
             datos_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(datos_usuarioLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(datos_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         body.add(datos_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 630, 70));
@@ -264,6 +276,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultaMouseClicked
         // TODO add your handling code here:
+        Consultas p4 = new Consultas();
+        p4.setSize(630, 440);
+        p4.setLocation(0, 0);
+        
+        contenido.removeAll();
+        contenido.add(p4,BorderLayout.CENTER);
+        contenido.revalidate();
+        contenido.repaint();
     }//GEN-LAST:event_btnConsultaMouseClicked
 
     private void LabelExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseEntered
@@ -373,6 +393,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel datos_usuario;
     private javax.swing.JPanel header;
     private javax.swing.JLabel icono;
+    private javax.swing.JLabel jLabelFecha;
+    private javax.swing.JLabel jLabelNombreUsuario;
     private javax.swing.JPanel navegador;
     // End of variables declaration//GEN-END:variables
 }
