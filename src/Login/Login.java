@@ -4,6 +4,8 @@
  */
 package Login;
 
+import java.awt.Color;
+
 /**
  *
  * @author josep
@@ -25,11 +27,10 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         Body = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
-        LabelExit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        LabelExit = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
@@ -39,6 +40,7 @@ public class Login extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jPasswordField1 = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -48,9 +50,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/santarosa.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/sur.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, -1, -1));
 
         Body.setBackground(new java.awt.Color(255, 255, 255));
         Body.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -69,20 +68,28 @@ public class Login extends javax.swing.JFrame {
         });
         header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabelExit.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/norte.png"))); // NOI18N
+        header.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
+
+        LabelExit.setBackground(new java.awt.Color(255, 255, 255));
+        LabelExit.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         LabelExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelExit.setText("X");
         LabelExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LabelExit.setOpaque(true);
         LabelExit.setPreferredSize(new java.awt.Dimension(30, 30));
         LabelExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LabelExitMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LabelExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LabelExitMouseExited(evt);
+            }
         });
-        header.add(LabelExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/norte.png"))); // NOI18N
-        header.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, -1, -1));
+        header.add(LabelExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, -1, -1));
 
         Body.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, -1));
 
@@ -147,14 +154,13 @@ public class Login extends javax.swing.JFrame {
 
         Body.add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 300, 340));
 
-        getContentPane().add(Body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 540));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/sur.png"))); // NOI18N
+        Body.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 440, -1, -1));
+
+        getContentPane().add(Body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void LabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_LabelExitMouseClicked
 
     private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
         xMouse = evt.getX();
@@ -166,6 +172,22 @@ public class Login extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged
+
+    private void LabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_LabelExitMouseClicked
+
+    private void LabelExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseEntered
+        // TODO add your handling code here:
+        LabelExit.setBackground(Color.red);
+        LabelExit.setForeground(Color.white);
+    }//GEN-LAST:event_LabelExitMouseEntered
+
+    private void LabelExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseExited
+        // TODO add your handling code here:
+        LabelExit.setBackground(Color.white);
+        LabelExit.setForeground(Color.black);
+    }//GEN-LAST:event_LabelExitMouseExited
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,7 @@
 package Registro;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Registros
      */
+    int xMouse, yMouse;
     public Principal() {
         initComponents();
         
@@ -39,83 +41,108 @@ public class Principal extends javax.swing.JFrame {
 
         body = new javax.swing.JPanel();
         navegador = new javax.swing.JPanel();
-        btnRegistroVenta = new javax.swing.JLabel();
         btnRegistroProducto = new javax.swing.JLabel();
-        Reporte = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        btnReporte = new javax.swing.JLabel();
+        icono = new javax.swing.JLabel();
+        btnConsulta = new javax.swing.JLabel();
+        btnRegistroVenta = new javax.swing.JLabel();
         datos_usuario = new javax.swing.JPanel();
         contenido = new javax.swing.JPanel();
+        header = new javax.swing.JPanel();
+        LabelExit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         navegador.setBackground(new java.awt.Color(244, 133, 3));
+        navegador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegistroVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnRegistroVenta.setText("Registro de Venta");
-        btnRegistroVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnRegistroVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegistroVenta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRegistroVentaMouseClicked(evt);
-            }
-        });
-
+        btnRegistroProducto.setBackground(new java.awt.Color(255, 153, 51));
         btnRegistroProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnRegistroProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnRegistroProducto.setText("Registro de Producto");
-        btnRegistroProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnRegistroProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistroProducto.setOpaque(true);
+        btnRegistroProducto.setPreferredSize(new java.awt.Dimension(142, 24));
         btnRegistroProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRegistroProductoMouseClicked(evt);
             }
-        });
-
-        Reporte.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Reporte.setText("Reporte");
-        Reporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Reporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Reporte.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ReporteMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistroProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistroProductoMouseExited(evt);
             }
         });
+        navegador.add(btnRegistroProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 270, 60));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Santa Rosa.png"))); // NOI18N
+        btnReporte.setBackground(new java.awt.Color(255, 153, 51));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnReporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnReporte.setText("Reporte");
+        btnReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReporte.setOpaque(true);
+        btnReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReporteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnReporteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnReporteMouseExited(evt);
+            }
+        });
+        navegador.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 270, 54));
 
-        javax.swing.GroupLayout navegadorLayout = new javax.swing.GroupLayout(navegador);
-        navegador.setLayout(navegadorLayout);
-        navegadorLayout.setHorizontalGroup(
-            navegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navegadorLayout.createSequentialGroup()
-                .addGroup(navegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegistroVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistroProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navegadorLayout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(49, 49, 49))
-        );
-        navegadorLayout.setVerticalGroup(
-            navegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navegadorLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel4)
-                .addGap(104, 104, 104)
-                .addComponent(btnRegistroVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRegistroProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
-        );
+        icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Santa Rosa.png"))); // NOI18N
+        navegador.add(icono, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 53, -1, -1));
 
-        body.add(navegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, -1));
+        btnConsulta.setBackground(new java.awt.Color(255, 153, 51));
+        btnConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnConsulta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnConsulta.setText("Consulta");
+        btnConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConsulta.setOpaque(true);
+        btnConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConsultaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnConsultaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnConsultaMouseExited(evt);
+            }
+        });
+        navegador.add(btnConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 270, 60));
+
+        btnRegistroVenta.setBackground(new java.awt.Color(255, 153, 51));
+        btnRegistroVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnRegistroVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRegistroVenta.setText("Registro de Venta");
+        btnRegistroVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistroVenta.setOpaque(true);
+        btnRegistroVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistroVentaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistroVentaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistroVentaMouseExited(evt);
+            }
+        });
+        navegador.add(btnRegistroVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 195, 270, 58));
+
+        body.add(navegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 540));
 
         datos_usuario.setBackground(new java.awt.Color(255, 204, 102));
 
@@ -127,10 +154,10 @@ public class Principal extends javax.swing.JFrame {
         );
         datos_usuarioLayout.setVerticalGroup(
             datos_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
-        body.add(datos_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 630, -1));
+        body.add(datos_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 630, 70));
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -146,6 +173,41 @@ public class Principal extends javax.swing.JFrame {
         );
 
         body.add(contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 630, 440));
+
+        header.setBackground(new java.awt.Color(255, 255, 255));
+        header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headerMouseDragged(evt);
+            }
+        });
+        header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headerMousePressed(evt);
+            }
+        });
+        header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelExit.setBackground(new java.awt.Color(255, 255, 255));
+        LabelExit.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        LabelExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelExit.setText("X");
+        LabelExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LabelExit.setOpaque(true);
+        LabelExit.setPreferredSize(new java.awt.Dimension(30, 30));
+        LabelExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LabelExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LabelExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LabelExitMouseExited(evt);
+            }
+        });
+        header.add(LabelExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, -1, -1));
+
+        body.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 100));
 
         getContentPane().add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 540));
 
@@ -174,7 +236,7 @@ public class Principal extends javax.swing.JFrame {
         contenido.repaint();
     }//GEN-LAST:event_btnRegistroProductoMouseClicked
 
-    private void ReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReporteMouseClicked
+    private void btnReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseClicked
        Reporte p3 = new Reporte();
         p3.setSize(630, 440);
         p3.setLocation(0, 0);
@@ -183,7 +245,86 @@ public class Principal extends javax.swing.JFrame {
         contenido.add(p3,BorderLayout.CENTER);
         contenido.revalidate();
         contenido.repaint();
-    }//GEN-LAST:event_ReporteMouseClicked
+    }//GEN-LAST:event_btnReporteMouseClicked
+
+    private void LabelExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_LabelExitMouseClicked
+
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_headerMouseDragged
+
+    private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headerMousePressed
+
+    private void btnConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultaMouseClicked
+
+    private void LabelExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseEntered
+        // TODO add your handling code here:
+        LabelExit.setBackground(Color.red);
+        LabelExit.setForeground(Color.white);
+    }//GEN-LAST:event_LabelExitMouseEntered
+
+    private void LabelExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelExitMouseExited
+        // TODO add your handling code here:
+        LabelExit.setBackground(Color.white);
+        LabelExit.setForeground(Color.black);
+    }//GEN-LAST:event_LabelExitMouseExited
+
+    private void btnRegistroVentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroVentaMouseEntered
+        // TODO add your handling code here:
+        btnRegistroVenta.setBackground(new  Color(255, 204, 102));
+        btnRegistroVenta.setForeground(Color.white);
+    }//GEN-LAST:event_btnRegistroVentaMouseEntered
+
+    private void btnRegistroVentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroVentaMouseExited
+        // TODO add your handling code here:
+        btnRegistroVenta.setBackground(new  Color(255, 153, 51));
+        btnRegistroVenta.setForeground(Color.black);
+    }//GEN-LAST:event_btnRegistroVentaMouseExited
+
+    private void btnRegistroProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroProductoMouseEntered
+        // TODO add your handling code here:
+        btnRegistroProducto.setBackground(new  Color(255, 204, 102));
+        btnRegistroProducto.setForeground(Color.white);
+    }//GEN-LAST:event_btnRegistroProductoMouseEntered
+
+    private void btnRegistroProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroProductoMouseExited
+        // TODO add your handling code here:
+        btnRegistroProducto.setBackground(new  Color(255, 153, 51));
+        btnRegistroProducto.setForeground(Color.black);
+    }//GEN-LAST:event_btnRegistroProductoMouseExited
+
+    private void btnConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultaMouseEntered
+        // TODO add your handling code here:
+        btnConsulta.setBackground(new  Color(255, 204, 102));
+        btnConsulta.setForeground(Color.white);
+    }//GEN-LAST:event_btnConsultaMouseEntered
+
+    private void btnConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultaMouseExited
+        // TODO add your handling code here:
+        btnConsulta.setBackground(new  Color(255, 153, 51));
+        btnConsulta.setForeground(Color.black);
+    }//GEN-LAST:event_btnConsultaMouseExited
+
+    private void btnReporteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseEntered
+        // TODO add your handling code here:
+        btnReporte.setBackground(new  Color(255, 204, 102));
+        btnReporte.setForeground(Color.white);
+    }//GEN-LAST:event_btnReporteMouseEntered
+
+    private void btnReporteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseExited
+        // TODO add your handling code here:
+        btnReporte.setBackground(new  Color(255, 153, 51));
+        btnReporte.setForeground(Color.black);
+    }//GEN-LAST:event_btnReporteMouseExited
 
     /**
      * @param args the command line arguments
@@ -222,13 +363,16 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Reporte;
+    private javax.swing.JLabel LabelExit;
     private javax.swing.JPanel body;
+    private javax.swing.JLabel btnConsulta;
     private javax.swing.JLabel btnRegistroProducto;
     private javax.swing.JLabel btnRegistroVenta;
+    private javax.swing.JLabel btnReporte;
     private javax.swing.JPanel contenido;
     private javax.swing.JPanel datos_usuario;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel header;
+    private javax.swing.JLabel icono;
     private javax.swing.JPanel navegador;
     // End of variables declaration//GEN-END:variables
 }
