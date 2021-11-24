@@ -6,6 +6,8 @@ package Registro;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import Registro.Login;
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 /**
  *
@@ -19,6 +21,11 @@ public class Principal extends javax.swing.JFrame {
     int xMouse, yMouse;
     public Principal() {
         initComponents();
+        
+        Login lo = new Login();
+        String ape = new Controller.PrincipalController().Apellido(lo.usuario);
+        jLabelNombreUsuario.setText(lo.usuario + " "+ape);
+        
         
         RegistroVenta p1 = new RegistroVenta();
         p1.setSize(630, 440);
@@ -147,6 +154,26 @@ public class Principal extends javax.swing.JFrame {
         body.add(navegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 540));
 
         datos_usuario.setBackground(new java.awt.Color(255, 204, 102));
+
+        jLabelNombreUsuario.setBackground(new java.awt.Color(255, 204, 102));
+        jLabelNombreUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNombreUsuario.setOpaque(true);
+        jLabelNombreUsuario.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jLabelNombreUsuarioComponentAdded(evt);
+            }
+        });
+        jLabelNombreUsuario.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jLabelNombreUsuarioInputMethodTextChanged(evt);
+            }
+        });
+
+        jLabelFecha.setBackground(new java.awt.Color(255, 204, 102));
+        jLabelFecha.setOpaque(true);
 
         javax.swing.GroupLayout datos_usuarioLayout = new javax.swing.GroupLayout(datos_usuario);
         datos_usuario.setLayout(datos_usuarioLayout);
@@ -345,6 +372,14 @@ public class Principal extends javax.swing.JFrame {
         btnReporte.setBackground(new  Color(255, 153, 51));
         btnReporte.setForeground(Color.black);
     }//GEN-LAST:event_btnReporteMouseExited
+
+    private void jLabelNombreUsuarioComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jLabelNombreUsuarioComponentAdded
+
+    }//GEN-LAST:event_jLabelNombreUsuarioComponentAdded
+
+    private void jLabelNombreUsuarioInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jLabelNombreUsuarioInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelNombreUsuarioInputMethodTextChanged
 
     /**
      * @param args the command line arguments
